@@ -8,9 +8,9 @@ shows how postgres_fdw may be used.
 
 # Limitations
 
-0. !!! Database can become inconsistent because foreign key
-   checks are disabled while migration is in progress !!!\
-   It's strongly recommended to manually check consistency after migration.
+0. **!!! Database can become inconsistent because foreign key
+   checks are disabled while migration is in progress !!!**\
+   It's strongly recommended to check consistency after migration manually.
 1. Sequences must be migrated manually. It's possible to automate
    it using `dblink` extension;
 2. Each `SELECT` query executed twice while inheritance
