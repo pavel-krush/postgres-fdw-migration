@@ -46,30 +46,30 @@ it’s postgres_fdw implementation for Postgres<->Postgres interconnection.
 
 You can always connect to any instance by issuing `make pg-old` or `make pg-new` command.
 
-1. Create `old` and `new` database instances using [docker-compose](docker-compose.yml):\
+1. Create `old` and `new` database instances using [docker-compose.yml](docker-compose.yml):\
    `$ docker-compose up -d`
 
 2. Initialize `old` database:\
    `$ make schema-old`\
-   See the [SQL](00-schema.sql) schema;
+   See [00-schema.sql](00-schema.sql) for SQL schema;
    
 3. Start worker on `old` instance:\
-   `$ make worker-old`
-   This will simulate production load, and also will create
+   `$ make worker-old`\
+   This will simulate production load, and will create
    some data for migration while we are doing preparation steps;
    
 4. Configure the `new` instance:\
    `$ make init-new`\
    Big part of magic happens here.\
-   See [SQL](01-init-new.sql) for details.\
+   See [01-init-new.sql](01-init-new.sql) for details.\
    After this step we will have two foreign tables on `new` instance: `parent_remote` and
    `child_remote` which redirect all queries to the remote server;
    
 5. Copy schema to the `new` instance:\
    `$ make schema-new`\
-   We use the same [schema](00-schema.sql) like it was used for `old` instance;
+   We use the same [00-schema.sql](00-schema.sql);
    
-6. Create inheritance from foreign tables to local ones.
+6. Create inheritance from foreign tables to local ones.\
    `$ make inheritance`\
    See [02-inheritance.sql](02-inheritance.sql).
 
@@ -93,7 +93,7 @@ You can always connect to any instance by issuing `make pg-old` or `make pg-new`
 9. Cleanup `new` instance:\
    `$ make cleanup-new`
    
-10. Stop docker project:\
+10. Stop docker-compose project:\
    `$ docker-compose down`
 
 11. Relax and have a beer 🍺.
