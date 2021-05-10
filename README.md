@@ -3,6 +3,9 @@
 This repo is an example showing how to do online migration from one postgres
 instance to another.
 
+WARNING: This is not ready-to-use solution. It's only a proof of concept that
+shows how postgres_fdw may be used.
+
 # Limitations
 
 0. !!! Database can become inconsistent because foreign key
