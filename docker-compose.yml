@@ -1,0 +1,20 @@
+services:
+  pg-old:
+    container_name: pg-old
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=super-service
+      - POSTGRES_USER=mega-user
+      - POSTGRES_PASSWORD=secret-password
+    ports:
+      - 15432:5432
+
+  pg-new:
+    container_name: pg-new
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=super-service
+      - POSTGRES_USER=mega-user
+      - POSTGRES_PASSWORD=secret-password
+    ports:
+      - 15433:5432
