@@ -57,8 +57,8 @@ enable-fk:
 # Migrate data from foreign tables to local
 .PHONY: migrate
 migrate:
-	@python3 migrate.py parent 10
-	@python3 migrate.py child 10
+	@python3 migrator.py child 10
+	@python3 migrator.py parent 10
 
 # Cleanup new instance
 .PHONY: cleanup-new

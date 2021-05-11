@@ -9,7 +9,7 @@ CREATE SERVER pg_old FOREIGN DATA WRAPPER postgres_fdw OPTIONS
 -- Create user mapping between local and remote users
 -- See https://www.postgresql.org/docs/13/sql-createusermapping.html
 CREATE USER MAPPING FOR "mega-user" SERVER pg_old OPTIONS
-    (USER 'mega-user', PASSWORD 'P@ssw0rd');
+    (USER 'mega-user', PASSWORD 'secret-password');
 
 -- Declare foreign tables.
 -- It can be done manually using CREATE FOREIGN TABLE statements
